@@ -9,6 +9,6 @@ data_nascimento: 18081986 <-- dessa forma <br/>***
 
 
 ## Quer ajudar ?
-- Faça um fork do projeto (desenvolvo algo para ajudar)
+- Faça um fork do projeto (desenvolvo algo, porque pode ficar melhor)
 - Dando um star no repositorio não custa nada, né ? :)
 - Recebo doações, caso queira doar é claro.
