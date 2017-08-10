@@ -71,7 +71,7 @@ function searchCpf(query,res){
 
 
 			}else{
-				res.status(500).json({error: body})
+				res.status(500).json({error: 'Error :/'})
 			}
 		});
 	}

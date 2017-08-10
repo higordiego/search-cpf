@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
 
-const online = false
+const online = true
 
 const url = online ? '' : 'mongodb://localhost/cpf'
 
