@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
 
-const online = true
+const online = false
 
-const url = online ? 'mongodb://cpf:cpf@ds135577.mlab.com:35577/cpf_search' : 'mongodb://localhost/cpf'
+const url = online ? '' : 'mongodb://localhost/cpf'
 
 const options = {
   useMongoClient: true
