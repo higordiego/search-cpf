@@ -8,6 +8,7 @@ faça uma requisição na rota http://localhost:3000/api/v1/cpf/"cpf"/"data_nasc
 data_nascimento: 18081986 <-- dessa forma <br/>***
 
 
-## Quero ajudar...
-
-Faça uma fork do projeto ou ajude quem fez doando alguma quantia :)
+## Quer ajudar ?
+- Faça um fork do projeto (desenvolvo algo para ajudar)
+- Dando um star no repositorio não custa nada, né ? :)
+- Recebo doações, caso queira doar é claro.
