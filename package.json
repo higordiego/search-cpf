@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +13,13 @@
     "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.2",
     "cloudscraper": "^1.4.1",
+    "consign": "^0.1.6",
+    "cpf_cnpj": "^0.2.0",
     "express": "^4.15.4",
     "mongoose": "^4.11.6",
-    "request": "^2.81.0"
+    "mysql": "^2.14.1",
+    "mysql2": "^1.4.0",
+    "request": "^2.81.0",
+    "sequelize": "^4.4.3"
   }
 }
