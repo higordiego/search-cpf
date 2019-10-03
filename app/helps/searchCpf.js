@@ -1,9 +1,6 @@
-var request = require("request");
-const cheerio = require('cheerio')
-
-const Regex = require('./regex')
-
-const Cpf = require('../modules/cpf/model')
+const   request = require("request");
+const   cheerio = require('cheerio')
+const   Regex = require('./regex')
 
 
 function searchCpf(query,res){
@@ -27,56 +24,45 @@ function searchCpf(query,res){
 		}
 
 
-		request(options, function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-				var $ = cheerio.load(body); 
+	request(options, function (error, response, body) {
+		if (!error && response.statusCode == 200) {
+			var $ = cheerio.load(body); 
 
-				const cpf = $('td').eq(1).text()
-
-				const name =  $('td').eq(3).text();
-
-				const birthDate =  $('td').eq(5).text()
-
-				const regular =  $('td').eq(7).text()
-
-				const registrationDate =  $('td').eq(9).text()
-				const registrationDate1990 =  $('td').eq(11).text()
-				const verifyingDigit  = $('td').eq(13).text()
-				const itsObvious = $('td').eq(15).text()
-				const dateOfIssue = $('td').eq(17).text()
+			let cpf = $('td').eq(1).text()
+			let name =  $('td').eq(3).text();
+			let birthDate =  $('td').eq(5).text()
+			let regular =  $('td').eq(7).text()
+			let registrationDate =  $('td').eq(9).text()
+			let registrationDate1990 =  $('td').eq(11).text()
+			let verifyingDigit  = $('td').eq(13).text()
+			let itsObvious = $('td').eq(15).text()
+			let dateOfIssue = $('td').eq(17).text()
 
 
 
-				const object = {
-					name: Regex(name),
-					cpf: Regex(cpf),
-					birthDate: Regex(birthDate),
-					regular: Regex(regular),
-					registrationDate: Regex(registrationDate),
-					registrationDate1990: Regex(registrationDate1990),
-					verifyingDigit: Regex(verifyingDigit),
-					itsObvious: Regex(itsObvious),
-					dateOfIssue: Regex(dateOfIssue)
-
-				}
-
-				if(object){
-					Cpf.create(object)
-					.then(cpf => res.status(200).json(cpf))
-					.catch(err => res.status(400).json({error: 'Incorrect data'}))
-				}else{
-
-					res.status(400).json({error: 'Incorrect data'})
-				}
-
-
-			}else{
-				res.status(500).json({error: 'Error :/'})
+			let object = {
+				name: Regex(name),
+				cpf: Regex(cpf),
+				birthDate: Regex(birthDate),
+				regular: Regex(regular),
+				registrationDate: Regex(registrationDate),
+				registrationDate1990: Regex(registrationDate1990),
+				verifyingDigit: Regex(verifyingDigit),
+				itsObvious: Regex(itsObvious),
+				dateOfIssue: Regex(dateOfIssue)
 			}
-		});
-	}
+
+			if(object){
+				let status = (object.name.length>0 || object.cpf.length >0 || object.regular.length > 0)?true:false
+				res.status(200).json({status:status,person:object})	
+			}
+		}else{
+			res.status(500).json({error: `Error : ${error}`})
+		}
+	});
+}
 
 
-	module.exports = {
-		searchCpf: searchCpf
-	}
+module.exports = {
+	searchCpf: searchCpf
+}
