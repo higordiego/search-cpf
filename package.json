@@ -16,7 +16,7 @@
     "consign": "^0.1.6",
     "cpf_cnpj": "^0.2.0",
     "express": "^4.15.4",
-    "mongoose": "^4.11.6",
+    "mongoose": "^5.7.7",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.0",
     "request": "^2.81.0",
